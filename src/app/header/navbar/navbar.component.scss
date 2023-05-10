@@ -1,0 +1,248 @@
+$green-zallpy: #12f276;
+$white-zallpy: #e6e6e6;
+
+header {
+  background: linear-gradient(black, transparent);
+  height: 228px;
+  a {
+    color: $white-zallpy;
+  }
+}
+
+.container-menu {
+  align-items: center;
+  display: flex;
+  height: 63px;
+  margin: 0 auto;
+  padding: 30px 0;
+  width: 86%;
+  .container-logo {
+    cursor: pointer;
+    margin-right: 5rem;
+  }
+}
+
+.container-links {
+  align-items: center;
+  display: flex;
+  margin-left: 5%;
+
+  p {
+    display: flex;
+    font-size: 18px;
+    margin-right: 2rem;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 230ms ease-in-out 0s;
+    &:hover {
+      text-shadow: 0 0 0.3rem $green-zallpy;
+    }
+    &::before {
+      background-color: $green-zallpy;
+      bottom: -3px;
+      content: "";
+      height: 3px;
+      left: 0;
+      position: absolute;
+      transform: scaleX(0);
+      transition: all 230ms ease-in-out 0s;
+      width: 100%;
+    }
+    &:hover::before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+  }
+
+  .btn-schedule {
+    background: transparent;
+    border: 2px solid $green-zallpy;
+    border-radius: 50px;
+    color: $green-zallpy;
+    cursor: pointer;
+    padding: 18px 0;
+    text-transform: uppercase;
+    transition: all 230ms ease-in-out 0s;
+    min-width: 164px;
+    &:hover {
+      text-shadow: 0 0 0.3rem $green-zallpy;
+    }
+  }
+}
+
+.translate-links {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  margin-left: 30px;
+  min-width: 48px;
+
+  .lang-por, .lang-en {
+    font-size: 18px;
+    margin-right: 22px;
+    transition: all 230ms ease-in-out 0s;
+  }
+
+  .lang-por:hover, .lang-en:hover {
+    color: $green-zallpy;
+    text-shadow: 0 0 0.5rem $green-zallpy;
+  }
+}
+
+.container-social-medias {
+  align-items: center;
+  display: flex;
+  height: 63px;
+  margin: 0 auto;
+  padding: 0 7.5%;
+  position: relative;
+  top: -52px;
+  width: 86%;
+
+  .mark-line {
+    border-bottom: 3px solid $white-zallpy;
+    position: relative;
+    width: 94%;
+  }
+
+  svg {
+    cursor: pointer;
+    margin-left: 17px;
+  }
+}
+
+@media (max-width: 1660px) {
+  .container-logo svg {
+    height: 51px;
+    width: 154px;
+  }
+
+  .container-links a p {
+    font-size: 14px;
+  }
+
+  .container-links .btn-schedule {
+    min-width: 144px;
+    padding: 13px 0;
+  }
+}
+
+@media (max-width: 1295px) {
+  .container-logo {
+    margin-right: 35%;
+    left: 0;
+  }
+
+  .container-links {
+    animation: showMenu 450ms;
+    background-color: #333;
+    border-radius: 22px;
+    box-shadow: 3px 2px 15pxrgba(85, 85, 85, 0.4);
+    display: none;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 42px 22px 22px;
+    position: absolute;
+    right: 105px;
+    top: 38px;
+    z-index: 9;
+    p {
+      margin: 8px auto;
+    }
+  }
+
+  .container-social-medias {
+    display: none;
+  }
+
+  @keyframes showMenu {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .translate-links {
+    margin-right: 8px;
+    position: absolute;
+    right: 170px;
+  }
+
+  .is-menu-open {
+    display: flex;
+  }
+
+  .btn-schedule {
+    margin-top: 10px;
+  }
+
+  .menu-icon {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 32px;
+    justify-content: space-evenly;
+    margin: 0 2.2rem;
+    position: absolute;
+    right: 70px;
+    width: 50px;
+    
+    .line-icon {
+      background-color: $white-zallpy;
+      border-radius: 5px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+      height: 4px;
+      width: 35px;
+      z-index: 10;
+    }
+  }
+
+  @for $i from 1 through 3 {
+    .line-icon:nth-child(#{$i}).active {
+      animation: animationLine-#{$i} 500ms cubic-bezier(.62, .87, .63, 1) forwards;
+    }
+
+    .line-icon:nth-child(#{$i}).disabled {
+      animation: animationRevLine-#{$i} 500ms cubic-bezier(.62, .87, .63, 1) forwards;
+    }
+  }
+
+  @keyframes animationLine-1 {
+    0% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(0px, 9.2px, 0px); }
+    100% { transform: translate3d(0px, 9.2px, 0px) rotateZ(45deg); background-color: $green-zallpy; }
+  }
+
+  @keyframes animationLine-2 {
+    0% { transform: scale(1); }
+    100% { transform: scale(0); }
+  }
+
+  @keyframes animationLine-3 {
+    0% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(0px, -9.2px, 0px); }
+    100% { transform: translate3d(0px, -9.2px, 0px) rotate(135deg); background-color: $green-zallpy; }
+  }
+
+  @keyframes animationRevLine-1 {
+    0% { transform: translate3d(0px, 9.2px, 0px) rotateZ(45deg); }
+    50% { transform: translate3d(0px, 9.2px, 0px); }
+    100% { transform: translate3d(0, 0, 0); background-color: $white-zallpy; }
+  }
+
+  @keyframes animationRevLine-2 {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes animationRevLine-3 {
+    0% { transform: translate3d(0px, -9.2px, 0px) rotate(135deg); }
+    50% { transform: translate3d(0px, -9.2px, 0px); }
+    100% { transform: translate3d(0, 0, 0); background-color: $white-zallpy; }
+  }
+}
