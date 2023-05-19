@@ -1,0 +1,11 @@
+<div class="banner">
+  <div class="container-images" *ngFor="let image of images; let i = index">
+    {{ngOnInit()}}
+    {{ngClearInterval()}}
+    <img
+      class="image"
+      *ngIf="i === currentImage"
+      [src]="image.url" [alt]="image.description"
+    >
+  </div>
+</div>

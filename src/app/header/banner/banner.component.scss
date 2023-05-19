@@ -1,0 +1,14 @@
+.container-images {
+  height: 89vh;
+  min-width: 100vw;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+
+  .image {
+    min-height: 89vh;
+    min-width: 100vw;
+    position: absolute;
+  }
+}

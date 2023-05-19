@@ -2,8 +2,8 @@ $green-zallpy: #12f276;
 $white-zallpy: #e6e6e6;
 
 header {
-  background: linear-gradient(black, transparent);
-  height: 228px;
+  background: linear-gradient(black, 62%, transparent);
+  height: 32vh;
   a {
     color: $white-zallpy;
   }
@@ -81,8 +81,11 @@ header {
 
   .lang-por, .lang-en {
     font-size: 18px;
-    margin-right: 22px;
     transition: all 230ms ease-in-out 0s;
+  }
+
+  .lang-por {
+    margin-right: 22px;
   }
 
   .lang-por:hover, .lang-en:hover {
